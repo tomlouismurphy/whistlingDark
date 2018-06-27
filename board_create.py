@@ -17,9 +17,15 @@ top_right = Space(2, 2)
 middle_right = Space(2, 1)
 bottom_right = Space(2, 0)
 
+all_positions = []
+
 top_location_array = []
 middle_location_array = []
 bottom_location_array = []
+
+all_positions.append(top_location_array)
+all_positions.append(middle_location_array)
+all_positions.append(bottom_location_array)
 
 top_location_array.append(top_left)
 top_location_array.append(top_middle)

@@ -44,6 +44,7 @@ def select_location(x):
 		x.location = 'bottom right'
 
 select_location(player1)
+print(player1.location)
 
 def move_north(x):
 	if player1.location == 'middle left':
@@ -70,7 +71,7 @@ def move_north(x):
 		bottom_location_array[2].inhabitants.remove(x)
 		middle_location_array[2].inhabitants.append(x)
 		x.location = 'middle right'
-	else
+	else:
 		pass
 
 def move_east(x):
@@ -98,7 +99,7 @@ def move_east(x):
 		bottom_location_array[1].inhabitants.remove(x)
 		bottom_location_array[2].inhabitants.append(x)
 		x.location = 'bottom right'
-	else
+	else:
 		pass
 
 def move_south(x):
@@ -126,7 +127,7 @@ def move_south(x):
 		middle_location_array[2].inhabitants.remove(x)
 		bottom_location_array[2].inhabitants.append(x)
 		x.location = 'bottom right'
-	else
+	else:
 		pass
 
 def move_west(x):
@@ -154,5 +155,13 @@ def move_west(x):
 		bottom_location_array[2].inhabitants.remove(x)
 		bottom_location_array[1].inhabitants.append(x)
 		x.location = 'bottom middle'
-	else
+	else:
 		pass
+
+def check_wall():
+	for x in all_positions:
+		for y in x:
+			if len(y.inhabitants) > 0:
+				print(y.exit)
+
+check_wall()
