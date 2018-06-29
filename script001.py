@@ -1,6 +1,7 @@
 from board_create import *
 from player_start import *
 from movements import *
+from pprint import pprint
 
 player1.first_words = input("hello? world? >>> ")
 
@@ -41,3 +42,56 @@ def select_location(x):
 
 select_location(player1)
 print(player1.location)
+
+def grid_check():
+	bottom_inhabitants = 0
+	vert_middle_inhabitants = 0
+	top_inhabitants = 0
+	left_inhabitants = 0
+	hori_middle_inhabitants = 0
+	right_inhabitants = 0
+	for x in all_positions:
+		for y in x:
+			if len(y.inhabitants) > 0:
+				protag = y.inhabitants[0]
+				if y.yPos == 0:
+					bottom_inhabitants += 1
+				elif y.yPos == 1:
+					vert_middle_inhabitants += 1
+				else:
+					top_inhabitants += 1
+	for x in all_positions:
+		for y in x:
+			if len(y.inhabitants) > 0:
+				protag = y.inhabitants[0]
+				if y.xPos == 0:
+					left_inhabitants += 1
+				elif y.xPos == 1:
+					hori_middle_inhabitants += 1
+				else:
+					right_inhabitants += 1
+	if (bottom_inhabitants == 1):
+		if (left_inhabitants == 1):
+			print("The fog obscures much. You can see walls to your south and west - what lies north and east is unclear.")
+		elif (hori_middle_inhabitants == 1):
+			print("The fog obscures much. You can see a wall to your south - what lies north, east and west is unclear.")
+		else:
+			print("The fog obscures much. You can see walls to your south and east - what lies north and west is unclear.")
+	elif (vert_middle_inhabitants == 1):
+		if (left_inhabitants == 1):
+			print("The fog obscures much. You can see a wall to your west - what lies north, east and south is unclear.")
+		elif (hori_middle_inhabitants == 1):
+			print("The fog obscures much. What lies north, east, south and west is unclear.")
+		else:
+			print("The fog obscures much. You can see a wall to your east - what lies north, south and west is unclear.")
+	elif (top_inhabitants == 1):
+		if (left_inhabitants == 1):
+			print("The fog obscures much. You can see walls to your north and west - what lies east and south is unclear.")
+		elif (hori_middle_inhabitants == 1):
+			print("The fog obscures much. You can see a wall to your north - what lies east, south and west is unclear.")
+		else:
+			print("The fog obscures much. You can see walls to your north and east - what lies south and west is unclear.")
+	else:
+		pass
+
+grid_check()
