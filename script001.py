@@ -104,10 +104,25 @@ def move_one(x):
 			print("You cannot go that way.")
 		else:
 			move_north(x)
+	elif (chosen_position == 'east' or chosen_position == 'e' or chosen_position == 'go e' or chosen_position == 'go east'):
+		if (len(top_location_array[2].inhabitants) == 1 or len(middle_location_array[2].inhabitants) == 1 or len(bottom_location_array[2].inhabitants) == 1):
+			print("You cannot go that way.")
+		else:
+			move_east(x)
+	elif (chosen_position == 'south' or chosen_position == 's' or chosen_position == 'go s' or chosen_position == 'go south'):
+		if (len(bottom_location_array[0].inhabitants) == 1 or len(bottom_location_array[1].inhabitants) == 1 or len(bottom_location_array[2].inhabitants) == 1):
+			print("You cannot go that way.")
+		else:
+			move_south(x)
+	elif (chosen_position == 'west' or chosen_position == 'w' or chosen_position == 'go w' or chosen_position == 'go west'):
+		if (len(top_location_array[0].inhabitants) == 1 or len(middle_location_array[0].inhabitants) == 1 or len(bottom_location_array[0].inhabitants) == 1):
+			print("You cannot go that way.")
+		else:
+			move_west(x)
 	else:
 		print('Rocks fall, everyone dies.')
 	print(player1.location)
 
-
-grid_check()
-move_one(player1)
+while (player1.location != 'middle middle'):
+	grid_check()
+	move_one(player1)
