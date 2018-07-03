@@ -44,23 +44,14 @@ select_location(player1)
 print(player1.location)
 
 escape_complete = False
-bottom_inhabitants = 0
-vert_middle_inhabitants = 0
-top_inhabitants = 0
-left_inhabitants = 0
-hori_middle_inhabitants = 0
-right_inhabitants = 0
 
-def inhabitants_reset():
+def grid_check():
 	bottom_inhabitants = 0
 	vert_middle_inhabitants = 0
 	top_inhabitants = 0
 	left_inhabitants = 0
 	hori_middle_inhabitants = 0
 	right_inhabitants = 0
-
-def grid_check():
-	inhabitants_reset()
 	for x in all_positions:
 		for y in x:
 			if len(y.inhabitants) > 0:
@@ -105,4 +96,18 @@ def grid_check():
 	else:
 		pass
 
+def move_one(x):
+	chosen_position = input(">>> ")
+	chosen_position = chosen_position.lower()
+	if (chosen_position == 'north' or chosen_position == 'n' or chosen_position == 'go n' or chosen_position == 'go north'):
+		if (len(top_location_array[0].inhabitants) == 1 or len(top_location_array[1].inhabitants) == 1 or len(top_location_array[2].inhabitants) == 1):
+			print("You cannot go that way.")
+		else:
+			move_north(x)
+	else:
+		print('Rocks fall, everyone dies.')
+	print(player1.location)
+
+
 grid_check()
+move_one(player1)
