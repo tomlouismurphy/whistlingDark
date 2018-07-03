@@ -43,13 +43,24 @@ def select_location(x):
 select_location(player1)
 print(player1.location)
 
-def grid_check():
+escape_complete = False
+bottom_inhabitants = 0
+vert_middle_inhabitants = 0
+top_inhabitants = 0
+left_inhabitants = 0
+hori_middle_inhabitants = 0
+right_inhabitants = 0
+
+def inhabitants_reset():
 	bottom_inhabitants = 0
 	vert_middle_inhabitants = 0
 	top_inhabitants = 0
 	left_inhabitants = 0
 	hori_middle_inhabitants = 0
 	right_inhabitants = 0
+
+def grid_check():
+	inhabitants_reset()
 	for x in all_positions:
 		for y in x:
 			if len(y.inhabitants) > 0:
