@@ -113,8 +113,12 @@ def move_west(x):
 	else:
 		pass
 
-def check_wall():
-	for x in all_positions:
-		for y in x:
+def check_wall(x):
+	for z in all_positions:
+		for y in z:
 			if len(y.inhabitants) > 0:
-				print(y.exit)
+				if (y.exit == False):
+					print("You cannot go that way.")
+				else:
+					print("Whatever you find outside, at least you're on your own.")
+					x.escaped_arena = True
