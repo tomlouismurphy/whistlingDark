@@ -44,31 +44,31 @@ def select_exit():
 	coin_flip = random.randint(0, 1)
 	if selector == 0:
 		if coin_flip == 0:
-			top_left.exit = 'left'
+			top_left.exit = 'west'
 		else:
-			top_left.exit = 'top'
+			top_left.exit = 'north'
 	elif selector == 1:
-		middle_left.exit = 'left'
+		middle_left.exit = 'west'
 	elif selector == 2:
 		if coin_flip == 0:
-			bottom_left.exit = 'left'
+			bottom_left.exit = 'west'
 		else:
-			bottom_left.exit = 'bottom'
+			bottom_left.exit = 'south'
 	elif selector == 3:
-		top_middle.exit = 'top'
+		top_middle.exit = 'north'
 	elif selector == 4:
-		bottom_middle.exit = 'bottom'
+		bottom_middle.exit = 'south'
 	elif selector == 5:
 		if coin_flip == 0:
-			top_right.exit = 'right'
+			top_right.exit = 'east'
 		else:
-			top_right.exit = 'top'
+			top_right.exit = 'north'
 	elif selector == 6:
-		middle_right.exit = 'right'
+		middle_right.exit = 'east'
 	else:
 		if coin_flip == 0:
-			bottom_right.exit = 'right'
+			bottom_right.exit = 'east'
 		else:
-			bottom_right.exit = 'bottom'
+			bottom_right.exit = 'south'
 
 select_exit()
