@@ -120,5 +120,8 @@ def check_wall(x):
 				if (y.exit == False):
 					print("You cannot go that way.")
 				else:
-					print("Whatever you find outside, at least you're on your own.")
-					x.escaped_arena = True
+					if (y.exit == x.direction_momentary):
+						print("Whatever you find outside, at least you're on your own at last.")
+						x.escaped_arena = True
+					else:
+						print("You breathe fresher air, but your hands uncover only more rocks. Keep searching.")

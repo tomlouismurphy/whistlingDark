@@ -41,7 +41,9 @@ bottom_location_array.append(bottom_right)
 
 def select_exit():
 	selector = random.randint(0, 7)
+	print(selector)
 	coin_flip = random.randint(0, 1)
+	print(coin_flip)
 	if selector == 0:
 		if coin_flip == 0:
 			top_left.exit = 'west'

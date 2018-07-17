@@ -99,22 +99,24 @@ def grid_check():
 def move_one(x):
 	chosen_position = input(">>> ")
 	chosen_position = chosen_position.lower()
-	if (chosen_position == 'north' or chosen_position == 'n' or chosen_position == 'go n' or chosen_position == 'go north'):
+	x.direction_momentary = parse_direction_input(chosen_position)
+	print(x.direction_momentary)
+	if (x.direction_momentary == 'north'):
 		if (len(top_location_array[0].inhabitants) == 1 or len(top_location_array[1].inhabitants) == 1 or len(top_location_array[2].inhabitants) == 1):
 			check_wall(x)
 		else:
 			move_north(x)
-	elif (chosen_position == 'east' or chosen_position == 'e' or chosen_position == 'go e' or chosen_position == 'go east'):
+	elif (x.direction_momentary == 'east'):
 		if (len(top_location_array[2].inhabitants) == 1 or len(middle_location_array[2].inhabitants) == 1 or len(bottom_location_array[2].inhabitants) == 1):
 			check_wall(x)
 		else:
 			move_east(x)
-	elif (chosen_position == 'south' or chosen_position == 's' or chosen_position == 'go s' or chosen_position == 'go south'):
+	elif (x.direction_momentary == 'south'):
 		if (len(bottom_location_array[0].inhabitants) == 1 or len(bottom_location_array[1].inhabitants) == 1 or len(bottom_location_array[2].inhabitants) == 1):
 			check_wall(x)
 		else:
 			move_south(x)
-	elif (chosen_position == 'west' or chosen_position == 'w' or chosen_position == 'go w' or chosen_position == 'go west'):
+	elif (x.direction_momentary == 'west'):
 		if (len(top_location_array[0].inhabitants) == 1 or len(middle_location_array[0].inhabitants) == 1 or len(bottom_location_array[0].inhabitants) == 1):
 			check_wall(x)
 		else:
@@ -122,6 +124,22 @@ def move_one(x):
 	else:
 		print('Rocks fall, everyone dies.')
 	print(player1.location)
+
+def parse_direction_input(x):
+	if (x == 'n' or x == 'go n' or x == 'go north'):
+		north = 'north'
+		return north
+	elif (x == 'e' or x == 'go e' or x == 'go east'):
+		east = 'east'
+		return east
+	elif (x == 's' or x == 'go s' or x == 'go south'):
+		south = 'south'
+		return south
+	elif (x == 'w' or x == 'go w' or x == 'go west'):
+		west = 'west'
+		return west
+	else:
+		return x
 
 while (player1.escaped_arena != True):
 	grid_check()
